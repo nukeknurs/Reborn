@@ -39,4 +39,4 @@ You can change accent, background and text color to any that you like or need.
 
 If you have any questions or feature requests, please open an Issue. 
 
-BTW if anyone knows how to code this better than me, please be my guest and do so., thanks! :)
+BTW if anyone knows how to code this better than me, please be my guest and do so, thanks! :)
