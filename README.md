@@ -17,7 +17,7 @@ Reborn theme for Mailspring. I liked `Less is more`, but is was just missing som
 
 You can change accent, background and text color to any that you like or need. 
 
-1. Just go to `Styles` -> `ui-variables.less`;
+1. Just go to `styles` -> `ui-variables.less`;
 
 2. Open it via notepad;
 
