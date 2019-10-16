@@ -225,6 +225,46 @@
 //  Thread List
 //====================================================
 
+// one color labels
+.thread-list,
+.draft-list {
+	.list-container {
+		.scroll-region-content .scroll-region-content-inner .list-rows {
+			.list-item {
+				.mail-label {
+					color: @less-background !important;
+					background: @accent-primary !important;
+					border-radius: none;
+					box-shadow: none !important;
+        }
+      }
+    }
+  }
+}
+
+// Make labels white on accent color when message is selected
+.thread-list .focused .mail-label,
+.draft-list .focused .mail-label,
+.thread-list.handler-split .list-item.selected .mail-label {
+  background: @accent-primary !important;
+  color: @less-background !important;
+  box-shadow: none !important;
+  -webkit-filter: none !important;
+}
+
+// Base settings for replacing backgrounds with -webkit-filters for easier color changes
+.thread-list .thread-icon {
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 12px;
+  -webkit-mask-position: center;
+}
+
+// Change color of unread dot icon
+.thread-list .thread-icon.thread-icon-unread {
+  background-image: none;
+  background-color: @accent-primary;
+  -webkit-mask-image: url(../static/images/thread-list/icon-unread-@2x.png);
+}
 
 // Thread list overrides
 .column-ThreadList,
@@ -318,6 +358,26 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
 //  Message List
 //====================================================
 
+//change send button color and appearance
+
+// one color labels
+#message-list {
+	// Labels
+	.mail-label.removable {
+		border-radius: none;
+		-webkit-filter: none;
+		filter: none;
+		color: @less-background !important;
+		background: @accent-primary !important;
+		box-shadow: none !important;
+		&:hover {
+			color: #ffffff !important;
+			img.x.content-mask {
+				background-color: #ffffff !important;
+			}
+		}
+	}
+}
 //------------------------------------------------------------
 // Message body
 //------------------------------------------------------------
@@ -407,8 +467,8 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
   .composer-action-bar-wrap {
   background-color: @less-background;
   box-shadow: none;
-  border: 1px solid transparent;
-  border-radius: 1px;
+  border: 0;
+  border-radius: 0;
 }
 
 #message-list .message-item-wrap .message-item-white-wrap.composer-outer-wrap {
@@ -428,7 +488,7 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
 #message-list .message-item-wrap .message-item-white-wrap.composer-outer-wrap.focused {
   background-color: @less-background;
   box-shadow: none;
-  border: 1px solid @less-divider;
+  border: 0;
   border-radius: 0;
 }
 #message-list
@@ -645,6 +705,9 @@ body.is-blurred .sheet-toolbar-container {
 }
 
 .button-dropdown .primary-item,
+.button-dropdown:hover .primary-item,
+.button-dropdown .secondary-picker,
+.button-dropdown:hover .secondary-picker,
 .button-dropdown .only-item {
   box-shadow: none;
 }
@@ -671,3 +734,113 @@ body.is-blurred .sheet-toolbar-container {
 .button-dropdown .secondary-picker img.content-mask {
   background-color: darken(@less-background, 60%);
 }
+
+body.platform-win32 .button-dropdown.btn-emphasis .secondary-picker {
+  margin-right: -2px;
+}
+
+body.platform-win32 .button-dropdown.btn-emphasis .primary-item {
+  margin-right: 4px;
+}
+
+
+body.platform-win32 .button-dropdown.btn-emphasis .primary-item, 
+body.platform-win32 .button-dropdown.btn-emphasis .secondary-picker, 
+body.platform-win32 .button-dropdown.btn-emphasis .primary-item:active, 
+body.platform-win32 .button-dropdown.btn-emphasis .secondary-picker:active,
+body.platform-win32 .button-dropdown.btn-emphasis .only-item {
+  box-shadow: 0px 0px 0px 0px @accent-primary;
+  border: 1px solid transparent;
+  background: @accent-primary;
+  border-radius: 10px;
+}
+
+body.platform-win32 .button-dropdown.btn-emphasis .primary-item:hover,
+body.platform-win32 .button-dropdown.btn-emphasis .secondary-picker:hover {
+  box-shadow: 0px 0px 15px 2px @accent-primary;
+  background: @less-background;
+  color: @accent-primary;
+  border: 1px solid @accent-primary;
+  border-radius: 10px;
+
+    img.content-mask {
+    background-color: @accent-primary !important;
+  }
+}
+
+
+/*
+.composer-inner-wrap {
+  background: transparent;
+  box-shadow: none !important;
+  border-radius: 2px;
+  .composer-header {
+		.composer-participant-field {
+			.content-container {
+				.item {
+					color: @accent-primary;
+					&:hover {
+						background: lighten(@accent-primary, 12%);
+						color: @less-background;
+						.category-item {
+							img.content-mask {
+								background-color: @accent-primary;
+							}
+						}
+					}
+					&.selected {
+						background: darken(@less-background,80%);
+						color: @less-background;
+						.primary, .secondary {
+              color: @accent-primary;
+              background: @less-background;
+            }
+          }
+        }
+      }
+    }
+  }
+	.composer-action-bar-wrap {
+    background: @less-background !important;
+		box-shadow: none !important;
+		border: none;
+		.composer-action-bar-content {
+			.btn-toolbar {
+				border: 0 !important;
+      }
+    }
+    .composer-action-bar-content {
+      align-items: center !important;
+      .btn-toolbar {
+				border: 0 !important;
+      }
+
+			// Send Button
+			.button-dropdown.bordered.btn-send.btn-emphasis.btn-text {
+		    border: 1px solid @accent-primary;
+		    border-radius: 100px !important;
+		    height: 35px;
+		    padding: 6px 12px;
+			}
+			.button-dropdown {
+				padding-top: 0;
+				border: 1px solid darken(@accent-primary, 40%);
+				border-radius: 2px;
+				&.btn-emphasis .secondary-picker:active {
+					background: none;
+				}
+				&:hover
+					.primary-item {
+						&[title] {
+							color: @less-background;
+						}
+						//img.content-mask {
+						//background-color: @accent-primary !important;
+            //}
+            
+        }
+      }
+    }
+  }
+}
+*/

@@ -18,6 +18,10 @@
 @sidebar-text: lighten(@less-text, 10%); //light-gray
 
 @accent-primary: #4e4e4e;
+
+// I high contrast themes so that's why I prefer lighten 60%. 
+// If you want to use light color please reduce its vale by at least 20%. 
+// Otherwise highlight color may not be present.
 @less-highlight: lighten(@accent-primary, 60%);
 
 @accent-primary-dark: lighten(@accent-primary, 10%);
@@ -29,5 +33,5 @@
 
 
 @text-color-link: @accent-primary;
-@text-color-link-hover: @less-highlight;
-@text-color-link-active: @less-highlight;
+@text-color-link-hover: lighten(@accent-primary, 20%);
+@text-color-link-active: lighten(@accent-primary, 20%);
