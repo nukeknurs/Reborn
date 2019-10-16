@@ -1,0 +1,12 @@
+{
+    "name": "reborn",
+    "displayName": "Reborn",
+    "theme": "ui",
+    "version": "1.0.7",
+    "description": "Less is more theme for Mailspring, but reborn!",
+    "license": "MIT",
+    "engines": {
+        "mailspring": "*"
+    },
+    "private": true
+}
