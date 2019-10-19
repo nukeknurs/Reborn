@@ -481,7 +481,14 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
   .message-item-white-wrap.composer-outer-wrap
   .RichEditor-toolbar
   .inner {
-  background-color: @less-background;
+  background-color: @less-background !important;
+  margin: auto !important;
+  max-width: 586px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  .divider {
+    border-right: none !important;
+  }
 }
 
 // Draft message background color on focus
@@ -653,6 +660,26 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
   border: none;
 }
 
+.notifications {
+	box-shadow: none;
+	margin-bottom: 15px;
+	.notification {
+		background: @accent-primary !important;
+		border-radius: 2px;
+		color: invert(@less-text) !important;
+		font-size: 0.857em;
+		margin: 0;
+		.action {
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0;
+			color: invert(@less-text) !important;
+			&:hover {
+				box-shadow: none;
+			}
+		}
+	}
+}
+
 .sidebar-activity {
   background: @less-background;
   color: @less-text;
@@ -666,6 +693,68 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
 //====================================================
 //  Composer
 //====================================================
+
+// subject colors
+
+body.platform-win32 .token {
+  transition-delay: 0s, 0s;
+  transition-duration: 0.3s, 0.3s;
+  transition-property: background, box-shadow;
+  transition-timing-function: ease, ease;
+}
+
+body.platform-win32 .token,
+body.platform-win32 .token.dragging {
+  box-shadow: 0px 0px 0px 0px @accent-primary;
+  border: 1px solid transparent;
+  background: @accent-primary;
+  border-radius: 10px;
+  color: @less-background;
+}
+
+.tokenizing-field .token img.content-mask {
+  background-color: @less-background;
+}
+
+body.platform-win32 .token.selected, 
+body.platform-win32 .token:hover  {
+  animation-timing-function: ease;
+  box-shadow: 0px 0px 15px 2px @accent-primary;
+  background: @less-background;
+  color: @accent-primary;
+  border: 1px solid @accent-primary;
+  border-radius: 10px;
+
+  img.content-mask {
+    background-color: @accent-primary !important;
+  }
+}
+
+.tokenizing-field .token.invalid {
+  border: 1px dashed red;
+  background: red;
+  color: @less-background;
+}
+
+//margins
+.composer-participant-field.from-field {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.composer-participant-field .tokenizing-field-input {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+// siganture button
+.message-item-white-wrap.composer-outer-wrap .composer-participant-field .dropdown-component .signature-button-dropdown .only-item,
+.message-item-white-wrap.composer-outer-wrap .composer-participant-field .dropdown-component .signature-button-dropdown .only-item:hover {
+  background: transparent;
+  box-shadow: none;
+  padding-right: 0;
+  border: none;
+}
 
 // make top of composer window uniform in color
 .sheet-toolbar-container,
